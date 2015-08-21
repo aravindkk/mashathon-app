@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	console.log('here');
+	
 	function showLocation(position)
 	{
        var lat = position.coords.latitude;

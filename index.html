@@ -1,18 +1,69 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <meta charset="utf-8" />
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cool For Me</title>
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jasny-bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
  </head>
  <body>
-   <form id="person" name="person" enctype="multipart/form-data">
-   <label>Your photo</label><input type="file" name="photo" id="photo" />
-   <input type='submit' value="Is my current place cool for me?" />
-   </form>
+   <h1>Cool For Me</h1>
+
+   <div class="container">
+   <form class="form-horizontal" id="person" name="person" enctype="multipart/form-data">
+   <div class="form-group fileinput fileinput-new col-md-8 col-sm-8" data-provides="fileinput">
+  <span class="btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><input type="file" name="photo" id="photo"></span>
+  <span class="fileinput-filename"></span>
+  <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+</div>
+
+   <div class="form-group">
+   <input type="text" class="form-control" placeholder="Place">
    <label>Place</label><input id="place" />
-   <button id="loc">Get location</button>
+   <button type="button" class="btn btn-default" id="loc">Get location</button>
    <p id="result"></p>
-   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+   </div>
+
+   <div class="form-group">
+   <button type='button' id="cool" class="btn btn-default">Cool For Me?</button>
+   </div>
+   </form>
+   </div> 
+
+   <footer>
+<!-- Button trigger modal -->
+<a href="#" data-toggle="modal" data-target="#myModal">About</a>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">About</h3>
+      </div>
+      <div class="modal-body">
+        <p><span id="brand-name">Cool For Me</span> is a state of the art prediction system that assesses accurately if a place will suit you or not. Using advanced machine learning technologies such as Face Detection, Sentiment Analysis and data about Air Quality from Breezometer API, this app whips up the sane message that you are looking for.</p>
+        <p>Warning: It works like magic!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"  data-dismiss="modal">Try it!</button>
+      </div>
+    </div>
+  </div>
+</div>
+   </footer>
+   <script type="text/javascript" src="js/jquery.js"></script>
    <script type="text/javascript" src="js/client.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jasny-bootstrap.min.js"></script>
  </body>
 </html>

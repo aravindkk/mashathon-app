@@ -1,0 +1,53 @@
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e1ffff+0,e1ffff+7,e1ffff+12,fdffff+12,e6f8fd+30,c8eefb+54,bee4f8+75,b1d8f5+100;Blue+Pipe+%232 */
+body
+{
+background: rgba(179,220,237,1);
+background: -moz-linear-gradient(left, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(179,220,237,1)), color-stop(50%, rgba(41,184,229,1)), color-stop(100%, rgba(188,224,238,1)));
+background: -webkit-linear-gradient(left, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+background: -o-linear-gradient(left, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+background: -ms-linear-gradient(left, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+background: linear-gradient(to right, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=1 );
+}
+h1
+{
+text-align: center;
+color:white;
+font-size: 50px;
+font-family: 'Lobster Two', cursive;
+}
+h3
+{
+text-align: center;
+color:#525252;
+}
+footer
+{
+text-align:center;
+text-decoration:none;
+bottom:5em;
+font-weight:200;
+font-size: 1.2em;
+font-family: Verdana, Geneva, sans-serif;
+}
+#cool
+{
+background-color:#b26a50;
+}
+label
+{
+color:#6d0019;
+}
+#brand-name
+{
+font-weight:200;
+font-size: 1.2em;
+font-family: 'Lobster Two', cursive;
+color:#ccccff;
+}
+.container
+{
+max-width:600px;
+margin:auto;
+}
