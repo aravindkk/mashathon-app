@@ -20,7 +20,7 @@ $(document).ready(function(){
 	$('#loc').click(function(){
 		if($('#place').val())
 		{
-            $.ajax({method: "GET", url:'http://maps.googleapis.com/maps/api/geocode/json?address='+ $('#place').val()                  
+            $.ajax({type: "GET", url:'http://maps.googleapis.com/maps/api/geocode/json?address='+ $('#place').val()                  
             }).done(function(result){
             	console.log(result);
             	console.log(result.results[0].geometry.location);
@@ -38,5 +38,18 @@ $(document).ready(function(){
 		     alert('Sorry browser does not support geolocation');
 		    }
 		}
+	});
+	$('#person').submit(function(e)
+	{
+		//Call /new post api to get url of cloudinary
+		//$.ajax({url:"/new",method:"POST"});
+        var formData = new FormData($(this)[0]);
+        $.ajax({url:"https://api.idolondemand.com/1/api/async/detectfaces/v1", type:"POST", data:{apikey: "eeb2cede-9d34-4318-9211-af9ba51ac9b2", url: "https://res.cloudinary.com/dpoft0dyi/image/upload/v1440155869/sample.jpg"}
+        	}).done(
+        	function(body){
+           console.log('inside ajax return call');
+           console.log(body);
+        });
+        	e.preventDefault();
 	});
 });
