@@ -6,8 +6,12 @@
  </head>
  <body>
    <form id="person" name="person" method="post" action="/new" enctype="multipart/form-data">
-   <label>Picture</label><input type="file" name="photo" id="photo" />
-   <input type='submit' value="Add this person to my memories" />
+   <label>Your photo</label><input type="file" name="photo" id="photo" />
+   <input type='submit' value="Is my current place cool for me?" />
    </form>
+   <button id="loc">Get location</button>
+   <p id="result"></p>
+   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+   <script type="text/javascript" src="js/client.js"></script>
  </body>
 </html>
