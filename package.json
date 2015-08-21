@@ -1,0 +1,17 @@
+{
+  "name": "Cool For Me",
+  "description":"Cool For Me lets you know if a place is safe and healthy for you or not.",
+  "author": {"name":"Aravind Bharathy","email":"aravindbharathykk@gmail.com"},
+  "keywords" : ["air quality","health","environment","climate","pollution"],
+  "version": "0.0.1",
+  "dependencies": {
+    "body-parser": "^1.5.2",
+    "cloudinary": "^1.0.11",
+    "express": "^3.1.2",
+    "multer": "^0.1.3",
+    "path": "^0.4.9"
+  },
+  "engines": {
+    "node": "0.11.x"
+  }
+}
