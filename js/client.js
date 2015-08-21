@@ -18,14 +18,25 @@ $(document).ready(function(){
 		}
 	}
 	$('#loc').click(function(){
-		if(navigator.geolocation)
+		if($('#place').val())
 		{
-            var options = {timeout:60000};
-            navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+            $.ajax({method: "GET", url:'http://maps.googleapis.com/maps/api/geocode/json?address='+ $('#place').val()                  
+            }).done(function(result){
+            	console.log(result);
+            	console.log(result.results[0].geometry.location);
+            });
 		}
 		else
 		{
-			alert('Sorry browser does not support geolocation');
+            if(navigator.geolocation)
+		    {
+             var options = {timeout:60000};
+             navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+		    }
+		    else
+		    {
+		     alert('Sorry browser does not support geolocation');
+		    }
 		}
 	});
 });

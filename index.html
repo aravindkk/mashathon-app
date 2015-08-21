@@ -2,13 +2,14 @@
 <html>
  <head>
   <meta charset="utf-8" />
-  <title>Image Uploader</title>
+  <title>Cool For Me</title>
  </head>
  <body>
    <form id="person" name="person" method="post" action="/new" enctype="multipart/form-data">
    <label>Your photo</label><input type="file" name="photo" id="photo" />
    <input type='submit' value="Is my current place cool for me?" />
    </form>
+   <label>Place</label><input id="place" />
    <button id="loc">Get location</button>
    <p id="result"></p>
    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
