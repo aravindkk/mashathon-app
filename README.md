@@ -6,4 +6,4 @@ Cool For Me is based on advanced machine learning capabilities derived from HP I
 
 Whether you are planning a vacation, or considering a new home, or just curious about your current home, Cool For Me is just the app for you. 
 
-You can find the app [here](http://herokuapp.com).
+You can find the app [here](http://coolforme.herokuapp.com).
