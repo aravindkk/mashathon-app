@@ -1,6 +1,8 @@
 $(document).ready(function(){
 	console.log('here');
-	var lat, lon;
+	$('#iscool').hide();
+	$('#isuncool').hide();
+	var lat, lon, msg="This is a cool place.", age="youth";
 	function showLocation(position)
 	{
        lat = position.coords.latitude;
@@ -25,8 +27,8 @@ $(document).ready(function(){
             }).done(function(result){
             	console.log(result);
             	console.log(result.results[0].geometry.location);
-            	lat = result.results[0].geometry.location.latitude;
-            	lon = result.results[0].geometry.location.longitude;
+            	lat = result.results[0].geometry.location.lat;
+            	lon = result.results[0].geometry.location.lng;
             	console.log(lat);
             	console.log(lon);
             });
@@ -44,6 +46,40 @@ $(document).ready(function(){
 		    }
 		}
 	});
+	$('#ref').click(function(){
+		$('#loader').show();
+		$('#out').html('');
+		$('#out').hide();
+	});
+	$('#ref2').click(function(){
+		$('#loader').show();
+		$('#out').html('');
+		$('#out').hide();
+	});
+
+	function abc(data)
+	{
+		//console.log(JSON.stringify(data));
+		alert('here in abc');
+		//alert(data);
+		var d = JSON.stringify(data);
+		d = JSON.parse(d);
+		//console.log(d);
+		var category= {"child":"children","adult":"health","elderly":"outside","youth":"sport"};
+		msg = d.random_recommendations? data.random_recommendations[category[age]]:"This is a cool place.";
+		$.ajax({type:"POST",url:"https://api.idolondemand.com/1/api/sync/analyzesentiment/v1",data:{apikey:"eeb2cede-9d34-4318-9211-af9ba51ac9b2",text:msg}}).done(function(body){
+              	console.log(body);
+              	$('#loader').hide();
+              	if(body.aggregate.sentiment=="positive")
+              	{
+                   $('#out').show();$('#out').html('<p id="iscool" class="iscool">Cool, this place is just the perfect fit for you.</p>'+'<p>'+msg+'</p>');
+              	}	  
+                else
+                {
+                   	  $('#out').show();$('#out').html('<p id="isuncool" class="isuncool">Oh no, this place is not a great fit for you.</p>'+'<p>'+msg+'</p>');	
+                }
+              });
+	}
 	$('#photo').change(function(e)
 	{
 		F = e.target.files[0];
@@ -57,6 +93,9 @@ $(document).ready(function(){
             }).done(function(result){
             	console.log(result);
             	console.log(result.results[0].geometry.location);
+            	lat = result.results[0].geometry.location.lat;
+            	lon = result.results[0].geometry.location.lng;
+            	console.log(lat);
             });
 		}
 		//Call /new post api to get url of cloudinary
@@ -76,11 +115,11 @@ $(document).ready(function(){
            console.log(body);
            //var b = JSON.parse(body);
            //console.log(b);
-           var age = body.face[0].additional_information?body.face[0].additional_information.age:"adult";
+           console.log(lat);
+           console.log(lon);
+           age = body.face[0].additional_information?body.face[0].additional_information.age:"youth";
            console.log('age is '+age);
-           $.ajax({type:"GET",url:"https://api-beta.breezometer.com/baqi",data:{datetime: "2015-06-17T11:11:21",key:"632a2994a483403cba69b4ffad82dadb",lat:lat,lon:lon}}).done(function(body){
-              console.log(body);
-           });
+           $.ajax({type:"GET",crossDomain: true,url:"http://api-beta.breezometer.com/baqi/",data:{key:"632a2994a483403cba69b4ffad82dadb",lat:lat,lon:lon},success:abc});
         });
         	//e.preventDefault();
 	});

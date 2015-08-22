@@ -58,10 +58,14 @@ padding-bottom:5px;
 #brand-name
 {
 font-weight:200;
-font-size: 1.2em;
+font-size: 25px;
 font-family: 'Lobster Two', cursive;
 color:white;
-padding:2px;
+padding-top:5px;
+}
+#write
+{
+font-family: 'Lobster Two', cursive;
 }
 .container
 {
@@ -111,4 +115,42 @@ text-align: center;
 color:white;
 font-size: 50px;
 font-family: 'Lobster Two', cursive;
+}
+#iscool
+{
+font-size:25px;
+}
+#iscool p
+{
+font-size:20px;
+}
+.iscool
+{
+color: green;
+}
+.isuncool
+{
+color: red;
+}
+#isuncool
+{
+font-size:25px;
+}
+#isuncool p
+{
+font-size:20px;
+}
+.glyphicon.spinning {
+    animation: spin 1s infinite linear;
+    -webkit-animation: spin2 1s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg); }
+    to { transform: scale(1) rotate(360deg); }
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
 }
