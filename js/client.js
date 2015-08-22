@@ -1,10 +1,10 @@
 $(document).ready(function(){
 	console.log('here');
-	
+	var lat, lon;
 	function showLocation(position)
 	{
-       var lat = position.coords.latitude;
-       var lon = position.coords.longitude;
+       lat = position.coords.latitude;
+       lon = position.coords.longitude;
        $('#result').html('Latitude '+lat+' Longitude '+lon);
 	}
 	function errorHandler(err)
@@ -25,6 +25,10 @@ $(document).ready(function(){
             }).done(function(result){
             	console.log(result);
             	console.log(result.results[0].geometry.location);
+            	lat = result.results[0].geometry.location.latitude;
+            	lon = result.results[0].geometry.location.longitude;
+            	console.log(lat);
+            	console.log(lon);
             });
 		}
 		else
@@ -57,19 +61,26 @@ $(document).ready(function(){
 		}
 		//Call /new post api to get url of cloudinary
 		//$.ajax({url:"/new",method:"POST"});
+        /*
         var formData = new FormData();
 
         formData.append("apikey", "eeb2cede-9d34-4318-9211-af9ba51ac9b2");
         formData.append("additional", "true");
         formData.append("url","https://res.cloudinary.com/dpoft0dyi/image/upload/v1440155869/sample.jpg");
+*/
 
         console.log('here before ajax');
-        $.ajax({url:"https://api.idolondemand.com/1/api/sync/detectfaces/v1", type:"POST", processData: false, contentType: 'multipart/form-data',data: formData
-        	,mimeType: 'multipart/form-data'}).done(
+        $.ajax({url:"https://api.idolondemand.com/1/api/sync/detectfaces/v1", type:"POST", data:{apikey: "eeb2cede-9d34-4318-9211-af9ba51ac9b2",url:"https://res.cloudinary.com/dpoft0dyi/image/upload/v1440155869/sample.jpg"}}).done(
         	function(body){
            console.log('inside ajax return call');
            console.log(body);
-           var b = JSON.parse(body);
+           //var b = JSON.parse(body);
+           //console.log(b);
+           var age = body.face[0].additional_information?body.face[0].additional_information.age:"adult";
+           console.log('age is '+age);
+           $.ajax({type:"GET",url:"https://api-beta.breezometer.com/baqi",data:{datetime: "2015-06-17T11:11:21",key:"632a2994a483403cba69b4ffad82dadb",lat:lat,lon:lon}}).done(function(body){
+              console.log(body);
+           });
         });
         	//e.preventDefault();
 	});
