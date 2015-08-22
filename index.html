@@ -18,28 +18,35 @@
 
    <div class="container">
    <form class="form-horizontal" id="person" name="person" enctype="multipart/form-data">
-   <div class="form-group fileinput fileinput-new col-md-8 col-sm-8" data-provides="fileinput">
-  <span class="btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><input type="file" name="photo" id="photo"></span>
-  <span class="fileinput-filename"></span>
-  <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+
+   <label>Step 1. Select my photo</label>
+   <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+  <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+  <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><input type="file" name="photo" id="photo"></span>
+  <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
 </div>
 
-   <div class="form-group">
-   <input type="text" class="form-control" placeholder="Place">
-   <label>Place</label><input id="place" />
-   <button type="button" class="btn btn-default" id="loc">Get location</button>
-   <p id="result"></p>
-   </div>
+   
+   <div class="form-group row" id="loca">
+    <label>Step 2. Select a location</label>
+    <div class="input-group">
+      <input type="text" class="form-control" id="place" placeholder="Type a place..">
+      <span class="input-group-btn">
+        <button class="btn btn-default" id="loc" type="button">Or get location from GPS!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+
 
    <div class="form-group">
-   <button type='button' id="cool" class="btn btn-default">Cool For Me?</button>
+   <button type='button' id="cool" class="btn btn-default btn-success">Cool For Me?</button>
    </div>
    </form>
    </div> 
 
    <footer>
 <!-- Button trigger modal -->
-<a href="#" data-toggle="modal" data-target="#myModal">About</a>
+<a href="#" data-toggle="modal" data-target="#myModal" id="jim">About</a>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
