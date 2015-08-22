@@ -60,7 +60,7 @@ $(document).ready(function(){
 	function abc(data)
 	{
 		//console.log(JSON.stringify(data));
-		alert('here in abc');
+		//alert('here in abc');
 		//alert(data);
 		var d = JSON.stringify(data);
 		d = JSON.parse(d);
