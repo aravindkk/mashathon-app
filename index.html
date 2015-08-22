@@ -12,6 +12,7 @@
     <link href="css/jasny-bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
  </head>
  <body>
    <h1>Cool For Me</h1>
@@ -19,10 +20,10 @@
    <div class="container">
    <form class="form-horizontal" id="person" name="person" enctype="multipart/form-data">
 
-   <label>Step 1. Select my photo</label>
+   <label>Step 1. Select a photo</label>
    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
   <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
-  <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><input type="file" name="photo" id="photo"></span>
+  <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><input type="file" name="photo" placeholder="Select a photo" id="photo"></span>
   <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
 </div>
 
@@ -39,10 +40,32 @@
 
 
    <div class="form-group">
-   <button type='button' id="cool" class="btn btn-default btn-success">Cool For Me?</button>
+   <button type='button' id="cool" class="button_example btn btn-default btn-success" data-toggle="modal" data-target="#myOutputModal" >Cool For Me?</button>
    </div>
    </form>
    </div> 
+
+   <div class="modal fade" id="myOutputModal" tabindex="-1" role="dialog" aria-labelledby="myOutputLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">About</h3>
+      </div>
+      <div class="modal-body">
+        <p><span id="brand-name">Cool For Me</span> is a state of the art prediction system that assesses accurately if a place will suit you or not. Using advanced machine learning technologies such as Face Detection, Sentiment Analysis and data about Air Quality from Breezometer API, this app whips up the sane message that you are looking for.</p>
+        <p>Warning: It works like magic!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"  data-dismiss="modal">Try it!</button>
+      </div>
+    </div>
+  </div>
+</div>
+   
+   <div id="output">
+   </div>
 
    <footer>
 <!-- Button trigger modal -->
@@ -57,8 +80,7 @@
         <h3 class="modal-title" id="myModalLabel">About</h3>
       </div>
       <div class="modal-body">
-        <p><span id="brand-name">Cool For Me</span> is a state of the art prediction system that assesses accurately if a place will suit you or not. Using advanced machine learning technologies such as Face Detection, Sentiment Analysis and data about Air Quality from Breezometer API, this app whips up the sane message that you are looking for.</p>
-        <p>Warning: It works like magic!</p>
+        <p><span id="brand-name" class="label-info">Cool For Me</span> is a state of the art prediction system that assesses accurately if a place will suit you or not. Using advanced machine learning technologies such as Face Detection(which evaluates your age and immune system levels), Sentiment Analysis(which evaluates the air quality recommendations based on age group) and data about Air Quality from Breezometer API, this app whips up the sane message that you are looking for.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

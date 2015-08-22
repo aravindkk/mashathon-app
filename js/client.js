@@ -40,17 +40,37 @@ $(document).ready(function(){
 		    }
 		}
 	});
-	$('#person').submit(function(e)
+	$('#photo').change(function(e)
 	{
+		F = e.target.files[0];
+		console.log(F);
+	})
+	$('#cool').click(function()
+	{
+		if($('#place').val())
+		{
+            $.ajax({type: "GET", url:'http://maps.googleapis.com/maps/api/geocode/json?address='+ $('#place').val()                  
+            }).done(function(result){
+            	console.log(result);
+            	console.log(result.results[0].geometry.location);
+            });
+		}
 		//Call /new post api to get url of cloudinary
 		//$.ajax({url:"/new",method:"POST"});
-        var formData = new FormData($(this)[0]);
-        $.ajax({url:"https://api.idolondemand.com/1/api/async/detectfaces/v1", type:"POST", data:{apikey: "eeb2cede-9d34-4318-9211-af9ba51ac9b2", url: "https://res.cloudinary.com/dpoft0dyi/image/upload/v1440155869/sample.jpg"}
-        	}).done(
+        var formData = new FormData();
+
+        formData.append("apikey", "eeb2cede-9d34-4318-9211-af9ba51ac9b2");
+        formData.append("additional", "true");
+        formData.append("url","https://res.cloudinary.com/dpoft0dyi/image/upload/v1440155869/sample.jpg");
+
+        console.log('here before ajax');
+        $.ajax({url:"https://api.idolondemand.com/1/api/sync/detectfaces/v1", type:"POST", processData: false, contentType: 'multipart/form-data',data: formData
+        	,mimeType: 'multipart/form-data'}).done(
         	function(body){
            console.log('inside ajax return call');
            console.log(body);
+           var b = JSON.parse(body);
         });
-        	e.preventDefault();
+        	//e.preventDefault();
 	});
 });
