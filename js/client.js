@@ -100,15 +100,7 @@ $(document).ready(function(){
 		}
 		//Call /new post api to get url of cloudinary
 		//$.ajax({url:"/new",method:"POST"});
-        /*
-        var formData = new FormData();
 
-        formData.append("apikey", "eeb2cede-9d34-4318-9211-af9ba51ac9b2");
-        formData.append("additional", "true");
-        formData.append("url","https://res.cloudinary.com/dpoft0dyi/image/upload/v1440155869/sample.jpg");
-*/
-
-        console.log('here before ajax');
         $.ajax({url:"https://api.idolondemand.com/1/api/sync/detectfaces/v1", type:"POST", data:{apikey: "eeb2cede-9d34-4318-9211-af9ba51ac9b2",url:"https://res.cloudinary.com/dpoft0dyi/image/upload/v1440155869/sample.jpg"}}).done(
         	function(body){
            console.log('inside ajax return call');
@@ -121,6 +113,5 @@ $(document).ready(function(){
            console.log('age is '+age);
            $.ajax({type:"GET",crossDomain: true,url:"http://api-beta.breezometer.com/baqi/",data:{key:"632a2994a483403cba69b4ffad82dadb",lat:lat,lon:lon},success:abc});
         });
-        	//e.preventDefault();
 	});
 });
